@@ -2,7 +2,7 @@
     "name": "kennitala-js",
     "version": "0.0.1",
     "description": "Utility library for Icelandic national identification numbers",
-    "main": "kennitala.min.js",
+    "main": "kennitala.js",
     "scripts": {
         "test": "mocha"
     },
