@@ -13,7 +13,7 @@ This is an utility library for the Icelandic national identification number sche
 Include the minified library and a Kennitala object should be available.
 
 ## Development
-    
+
     git pull http://github.com/StefanKjartansson/kennitala-js.git
     npm install
     make
