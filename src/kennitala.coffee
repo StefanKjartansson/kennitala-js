@@ -9,21 +9,18 @@ validate = (kt) ->
     return false
   return true
 
-getRandom = () ->
-  rnd = Math.floor((Math.random()*99)+1)
-  if String(rnd.length) == 1
-    return [0, rnd]
-  return (+i for i in String(rnd).split '')
-
 dateToArray = (date) ->
   stack = []
   d = String(date.getDay())
-  stack.push(if d.length == 1 then "0#{d}" else d)
+  stack.push(getTwoDigitNumber(d))
   m = String(date.getMonth() + 1)
-  stack.push(if m.length == 1 then "0#{m}" else m)
+  stack.push(getTwoDigitNumber(m))
   yr = String(date.getFullYear())
   stack.push(yr[2..])
   return stack.join('').split ''
+
+getTwoDigitNumber = (number) ->
+  if number.length == 1 then "0#{number}" else number
 
 generate = (date) ->
   stack = dateToArray date
@@ -44,6 +41,12 @@ generate = (date) ->
       stack.push(String(date.getFullYear())[1])
       valid = true
   return stack.join ''
+
+getRandom = () ->
+  rnd = Math.floor((Math.random()*99)+1)
+  if String(rnd.length) == 1
+    return [0, rnd]
+  return (+i for i in String(rnd).split '')
 
 Kennitala = exports? and exports or @Kennitala = {}
 Kennitala.validate = validate
